@@ -26,12 +26,15 @@ export class InvoiceCalculatorService {
   constructor(private vatCategoriesService: VatCategoriesService) { }
 
   public CalculatePriceExclusiveVat(priceInclusiveVat: number, vatPercentage: number): number {
-    // REPLACE the next line with the necessary code
-    return NaN;
+    // tslint:disable-next-line:use-isnan
+    if (priceInclusiveVat !== NaN && vatPercentage !== NaN) {
+      return priceInclusiveVat / (1 + (vatPercentage / 100));
+    } else {
+      return NaN;
+    }
   }
 
   public CalculateInvoice(invoiceLines: InvoiceLine[]): Invoice {
-    // REPLACE the next line with the necessary code
     return undefined;
   }
 }

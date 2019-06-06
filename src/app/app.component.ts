@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { InvoiceLine, InvoiceCalculatorService, Invoice } from './invoice-calculator.service';
 import { VatCategory } from './vat-categories.service';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,17 @@ export class AppComponent {
   priceInclusiveVat = 0;
   vatCategoryString = 'Food';
 
+  hide: boolean;
+
   vatCategories = VatCategory;
 
   constructor(private invoiceCalculator: InvoiceCalculatorService) { }
 
   addInvoice() {
-    // ADD necessary code here
+    if (this.priceInclusiveVat === 0) {
+      this.hide = true;
+    } else {
+      this.hide = false;
+    }
   }
 }

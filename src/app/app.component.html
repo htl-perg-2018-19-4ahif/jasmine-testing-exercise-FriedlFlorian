@@ -30,11 +30,11 @@
         </select>
       </td>
       <td>
-        <input id="priceInclusiveVat-input" type="number" />
+        <input id="priceInclusiveVat-input" type="number" [[(ngModel)]="priceInclusiveVat"]/>
       </td>
       <td>&nbsp;</td>
       <td>
-        <button id="add-button" (click)="addInvoice()">Add</button>
+        <button id="add-button" (click)="addInvoice()" [hidden]="hide">Add</button>
       </td>
     </tr>
   </tbody>
